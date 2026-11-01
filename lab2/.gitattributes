@@ -1,0 +1,5 @@
+# Preserve generated artifacts byte-for-byte across Windows and other platforms.
+*.pdf binary
+*.zip binary
+*.png binary
+*.jpg binary

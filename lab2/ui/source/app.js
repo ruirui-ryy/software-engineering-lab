@@ -148,4 +148,3 @@ document.addEventListener('click',e=>{
 });
 window.PROTOTYPE={pages:PAGES,stateLabels:STATE_LABELS,csvData,roster,scope:'in-memory-ui-only'};
 render();
-
