@@ -1,0 +1,59 @@
+@startuml
+title 时序图｜报名、最后名额竞争与幂等重试
+skinparam defaultFontName Microsoft YaHei
+skinparam defaultFontSize 14
+skinparam backgroundColor #FCFDFB
+skinparam sequenceParticipantBackgroundColor #EDF6F2
+skinparam sequenceLifeLineBorderColor #537469
+skinparam shadowing false
+actor 参与者 as U
+boundary 报名界面 as UI
+control 报名服务 as S
+control 权限策略 as A
+database 业务存储 as DB
+control 通知处理 as N
+U -> UI : 选择场次与票种并确认
+UI -> S : register(user, session, ticket, requestKey)
+S -> A : 验证身份与本人范围
+A --> S : 允许/拒绝
+alt 越权或未登录
+  S --> UI : 拒绝，受保护数据不变
+else 已授权
+  group 事务（建议统一活动锁协调）
+    S -> DB : BEGIN；锁幂等键；查询已提交结果
+    alt 同一请求已有结果
+      DB --> S : 首次已提交结果
+      S -> DB : 结束只读事务，不重复写入
+    else 首次处理
+      S -> DB : 锁活动→场次/名额；读取服务器时间和状态
+      alt 已取消/非开放期/状态不允许
+        S -> DB : 保存拒绝结果及审计；COMMIT（不新增报名）
+      else 允许报名
+        S -> DB : 校验同用户同场次有效记录唯一
+        alt 已有有效记录
+          S -> DB : 不新增；保存对应处理结果
+        else 最后名额仍可原子占用
+          S -> DB : 创建已报名、凭证、幂等结果及审计
+          S -> DB : 如存在已确认通知触发则落待发送记录
+        else 无名额
+          S -> DB : 保存满额结果，不自动代用户登记候补
+          note right of S : 用户另行选择候补；新请求仍需同样校验
+        end
+        S -> DB : 提交前保持活动协调锁；COMMIT
+      end
+    end
+  end
+  S --> UI : 返回本次或首次结果
+  opt 已提交且存在待发送通知
+    S -> N : 提交后处理通知
+    N -> DB : 保存发送结果；失败可补发
+  end
+end
+note over S, DB
+REQ-012/013/028：同一锁序裁决并发，最后名额最多一人得到。
+任一写入失败：整体回滚；回滚后独立记录失败审计。
+已裁决业务拒绝也保存幂等结果；未提交故障可重试执行。
+取消活动使用同一活动锁，避免“查询后取消、随后仍写入”的竞态。
+REQ-014：等于截止时刻的口径待确认；不是客户端时间决定。
+end note
+@enduml

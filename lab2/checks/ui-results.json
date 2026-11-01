@@ -1,0 +1,765 @@
+{
+  "scope": "本地UI原型；不覆盖服务端安全、事务或正式性能验收",
+  "exported": [
+    {
+      "id": "U01",
+      "state": "default",
+      "file": "U01_登录.png",
+      "width": 1440,
+      "height": 1000
+    },
+    {
+      "id": "U01",
+      "state": "error",
+      "file": "U01_登录_error.png",
+      "width": 1440,
+      "height": 1000
+    },
+    {
+      "id": "U02",
+      "state": "default",
+      "file": "U02_账号设置.png",
+      "width": 1440,
+      "height": 1000
+    },
+    {
+      "id": "U02",
+      "state": "duplicate",
+      "file": "U02_账号设置_duplicate.png",
+      "width": 1440,
+      "height": 1000
+    },
+    {
+      "id": "U03",
+      "state": "default",
+      "file": "U03_发现活动.png",
+      "width": 1440,
+      "height": 1000
+    },
+    {
+      "id": "U03",
+      "state": "empty",
+      "file": "U03_发现活动_empty.png",
+      "width": 1440,
+      "height": 1000
+    },
+    {
+      "id": "U03",
+      "state": "error",
+      "file": "U03_发现活动_error.png",
+      "width": 1440,
+      "height": 1000
+    },
+    {
+      "id": "U03",
+      "state": "loading",
+      "file": "U03_发现活动_loading.png",
+      "width": 1440,
+      "height": 1000
+    },
+    {
+      "id": "U04",
+      "state": "default",
+      "file": "U04_活动详情.png",
+      "width": 1440,
+      "height": 1000
+    },
+    {
+      "id": "U04",
+      "state": "full",
+      "file": "U04_活动详情_full.png",
+      "width": 1440,
+      "height": 1000
+    },
+    {
+      "id": "U04",
+      "state": "closed",
+      "file": "U04_活动详情_closed.png",
+      "width": 1440,
+      "height": 1000
+    },
+    {
+      "id": "U04",
+      "state": "cancelled",
+      "file": "U04_活动详情_cancelled.png",
+      "width": 1440,
+      "height": 1000
+    },
+    {
+      "id": "U04",
+      "state": "not-open",
+      "file": "U04_活动详情_not-open.png",
+      "width": 1440,
+      "height": 1000
+    },
+    {
+      "id": "U05",
+      "state": "default",
+      "file": "U05_报名确认.png",
+      "width": 1440,
+      "height": 1000
+    },
+    {
+      "id": "U05",
+      "state": "full",
+      "file": "U05_报名确认_full.png",
+      "width": 1440,
+      "height": 1000
+    },
+    {
+      "id": "U05",
+      "state": "duplicate",
+      "file": "U05_报名确认_duplicate.png",
+      "width": 1440,
+      "height": 1000
+    },
+    {
+      "id": "U05",
+      "state": "closed",
+      "file": "U05_报名确认_closed.png",
+      "width": 1440,
+      "height": 1000
+    },
+    {
+      "id": "U05",
+      "state": "cancelled",
+      "file": "U05_报名确认_cancelled.png",
+      "width": 1440,
+      "height": 1000
+    },
+    {
+      "id": "U05",
+      "state": "unknown",
+      "file": "U05_报名确认_unknown.png",
+      "width": 1440,
+      "height": 1000
+    },
+    {
+      "id": "U05",
+      "state": "success",
+      "file": "U05_报名确认_success.png",
+      "width": 1440,
+      "height": 1000
+    },
+    {
+      "id": "U05",
+      "state": "waiting",
+      "file": "U05_报名确认_waiting.png",
+      "width": 1440,
+      "height": 1000
+    },
+    {
+      "id": "U06",
+      "state": "default",
+      "file": "U06_我的报名.png",
+      "width": 1440,
+      "height": 1000
+    },
+    {
+      "id": "U06",
+      "state": "expired",
+      "file": "U06_我的报名_expired.png",
+      "width": 1440,
+      "height": 1000
+    },
+    {
+      "id": "U06",
+      "state": "empty",
+      "file": "U06_我的报名_empty.png",
+      "width": 1440,
+      "height": 1000
+    },
+    {
+      "id": "U07",
+      "state": "default",
+      "file": "U07_报名凭证.png",
+      "width": 1440,
+      "height": 1000
+    },
+    {
+      "id": "U07",
+      "state": "checked",
+      "file": "U07_报名凭证_checked.png",
+      "width": 1440,
+      "height": 1000
+    },
+    {
+      "id": "U07",
+      "state": "cancelled",
+      "file": "U07_报名凭证_cancelled.png",
+      "width": 1440,
+      "height": 1000
+    },
+    {
+      "id": "U07",
+      "state": "event-cancelled",
+      "file": "U07_报名凭证_event-cancelled.png",
+      "width": 1440,
+      "height": 1000
+    },
+    {
+      "id": "U07",
+      "state": "waiting",
+      "file": "U07_报名凭证_waiting.png",
+      "width": 1440,
+      "height": 1000
+    },
+    {
+      "id": "U07",
+      "state": "expired",
+      "file": "U07_报名凭证_expired.png",
+      "width": 1440,
+      "height": 1000
+    },
+    {
+      "id": "U07",
+      "state": "absent",
+      "file": "U07_报名凭证_absent.png",
+      "width": 1440,
+      "height": 1000
+    },
+    {
+      "id": "U08",
+      "state": "default",
+      "file": "U08_我的活动.png",
+      "width": 1440,
+      "height": 1000
+    },
+    {
+      "id": "U08",
+      "state": "empty",
+      "file": "U08_我的活动_empty.png",
+      "width": 1440,
+      "height": 1000
+    },
+    {
+      "id": "U09",
+      "state": "default",
+      "file": "U09_编辑活动.png",
+      "width": 1440,
+      "height": 1210
+    },
+    {
+      "id": "U09",
+      "state": "new",
+      "file": "U09_编辑活动_new.png",
+      "width": 1440,
+      "height": 1210
+    },
+    {
+      "id": "U09",
+      "state": "capacity",
+      "file": "U09_编辑活动_capacity.png",
+      "width": 1440,
+      "height": 1210
+    },
+    {
+      "id": "U09",
+      "state": "review",
+      "file": "U09_编辑活动_review.png",
+      "width": 1440,
+      "height": 1302
+    },
+    {
+      "id": "U10",
+      "state": "default",
+      "file": "U10_审核进度.png",
+      "width": 1440,
+      "height": 1000
+    },
+    {
+      "id": "U10",
+      "state": "rejected",
+      "file": "U10_审核进度_rejected.png",
+      "width": 1440,
+      "height": 1000
+    },
+    {
+      "id": "U10",
+      "state": "published",
+      "file": "U10_审核进度_published.png",
+      "width": 1440,
+      "height": 1000
+    },
+    {
+      "id": "U11",
+      "state": "default",
+      "file": "U11_报名名单.png",
+      "width": 1440,
+      "height": 1013
+    },
+    {
+      "id": "U11",
+      "state": "empty",
+      "file": "U11_报名名单_empty.png",
+      "width": 1440,
+      "height": 1000
+    },
+    {
+      "id": "U11",
+      "state": "export-error",
+      "file": "U11_报名名单_export-error.png",
+      "width": 1440,
+      "height": 1105
+    },
+    {
+      "id": "U11",
+      "state": "forbidden",
+      "file": "U11_报名名单_forbidden.png",
+      "width": 1440,
+      "height": 1000
+    },
+    {
+      "id": "U12",
+      "state": "default",
+      "file": "U12_活动统计.png",
+      "width": 1440,
+      "height": 1000
+    },
+    {
+      "id": "U12",
+      "state": "ended",
+      "file": "U12_活动统计_ended.png",
+      "width": 1440,
+      "height": 1000
+    },
+    {
+      "id": "U12",
+      "state": "zero",
+      "file": "U12_活动统计_zero.png",
+      "width": 1440,
+      "height": 1000
+    },
+    {
+      "id": "U13",
+      "state": "default",
+      "file": "U13_授权场次.png",
+      "width": 1440,
+      "height": 1000
+    },
+    {
+      "id": "U13",
+      "state": "empty",
+      "file": "U13_授权场次_empty.png",
+      "width": 1440,
+      "height": 1000
+    },
+    {
+      "id": "U14",
+      "state": "default",
+      "file": "U14_凭证核验.png",
+      "width": 1440,
+      "height": 1000
+    },
+    {
+      "id": "U14",
+      "state": "success",
+      "file": "U14_凭证核验_success.png",
+      "width": 1440,
+      "height": 1000
+    },
+    {
+      "id": "U14",
+      "state": "checked",
+      "file": "U14_凭证核验_checked.png",
+      "width": 1440,
+      "height": 1000
+    },
+    {
+      "id": "U14",
+      "state": "invalid",
+      "file": "U14_凭证核验_invalid.png",
+      "width": 1440,
+      "height": 1000
+    },
+    {
+      "id": "U14",
+      "state": "forbidden",
+      "file": "U14_凭证核验_forbidden.png",
+      "width": 1440,
+      "height": 1000
+    },
+    {
+      "id": "U14",
+      "state": "cancelled",
+      "file": "U14_凭证核验_cancelled.png",
+      "width": 1440,
+      "height": 1000
+    },
+    {
+      "id": "U14",
+      "state": "waiting",
+      "file": "U14_凭证核验_waiting.png",
+      "width": 1440,
+      "height": 1000
+    },
+    {
+      "id": "U15",
+      "state": "default",
+      "file": "U15_活动审核.png",
+      "width": 1440,
+      "height": 1000
+    },
+    {
+      "id": "U15",
+      "state": "conflict",
+      "file": "U15_活动审核_conflict.png",
+      "width": 1440,
+      "height": 1000
+    },
+    {
+      "id": "U15",
+      "state": "cancelled",
+      "file": "U15_活动审核_cancelled.png",
+      "width": 1440,
+      "height": 1000
+    },
+    {
+      "id": "U16",
+      "state": "default",
+      "file": "U16_平台汇总.png",
+      "width": 1440,
+      "height": 1000
+    },
+    {
+      "id": "U16",
+      "state": "empty",
+      "file": "U16_平台汇总_empty.png",
+      "width": 1440,
+      "height": 1000
+    },
+    {
+      "id": "U17",
+      "state": "default",
+      "file": "U17_操作日志.png",
+      "width": 1440,
+      "height": 1061
+    },
+    {
+      "id": "U17",
+      "state": "empty",
+      "file": "U17_操作日志_empty.png",
+      "width": 1440,
+      "height": 1000
+    },
+    {
+      "id": "U17",
+      "state": "forbidden",
+      "file": "U17_操作日志_forbidden.png",
+      "width": 1440,
+      "height": 1000
+    },
+    {
+      "id": "U18",
+      "state": "default",
+      "file": "U18_通知处理.png",
+      "width": 1440,
+      "height": 1000
+    },
+    {
+      "id": "U18",
+      "state": "retrying",
+      "file": "U18_通知处理_retrying.png",
+      "width": 1440,
+      "height": 1000
+    },
+    {
+      "id": "U18",
+      "state": "failed",
+      "file": "U18_通知处理_failed.png",
+      "width": 1440,
+      "height": 1000
+    },
+    {
+      "id": "U18",
+      "state": "success",
+      "file": "U18_通知处理_success.png",
+      "width": 1440,
+      "height": 1000
+    }
+  ],
+  "assertions": [
+    {
+      "name": "组合查询仅返回匹配活动",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "查询结果为自然工作坊",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "活动详情保留选中的活动身份",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "报名确认与上一步活动一致",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "所选票种传递到报名确认",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "空结果状态",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "原请求重试展示首次成功结果",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "满额候补确认",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "同一示例报名在名单与凭证中票种一致",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "取消报名先展示确认",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "确认后凭证状态更新",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "已取消记录不展示有效入场凭证",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "已签到禁止取消",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "首次核验成功",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "首次签到增加一次计数",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "重复核验反馈",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "重复签到不增加计数",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "无效凭证被拒绝",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "forbidden场景拒绝签到",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "forbidden场景不增加计数",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "cancelled场景拒绝签到",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "cancelled场景不增加计数",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "waiting场景拒绝签到",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "waiting场景不增加计数",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "容量下限校验",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "草稿保存反馈",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "可新增票种字段",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "可新增场次及票种字段",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "新增场次时间校验",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "可移除未保存的新增场次",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "创建入口打开空白活动名称",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "新建活动按0占用校验而非套用已有活动",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "账号页保留来源身份",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "候补名单筛选6条",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "导出CSV与筛选后的6条记录一致",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "候补筛选CSV不包含已签到",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "导出故障不下载残缺成功文件",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "无权场景隐藏受保护名单",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "无权场景禁止导出按钮",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "驳回需填写原因（设计建议）",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "审核驳回交互",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "审核冲突拒绝旧请求",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "活动取消后禁止旧审核按钮",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "失败日志查询",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "日志详情包含失败结果",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "通知补发成功",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "通知处理保留报名结果",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "通知补发失败保留结果",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "账号标识唯一校验演示",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "统计零分母反馈",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "U01窄屏无页面水平溢出",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "U03窄屏无页面水平溢出",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "U07窄屏无页面水平溢出",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "U14窄屏无页面水平溢出",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "所有页面无JavaScript运行错误",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "所有导出场景无页面水平溢出",
+      "passed": true,
+      "details": "[]"
+    }
+  ],
+  "consoleErrors": [],
+  "layoutIssues": []
+}

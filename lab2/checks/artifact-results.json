@@ -1,0 +1,287 @@
+{
+  "scope": "设计覆盖和本地界面验证；非后端验收",
+  "checks": [
+    {
+      "name": "保留实验一文件 requirements.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "保留实验一文件 chat.txt",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "保留实验一文件 report/report.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "保留实验一文件 .gitignore",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "保留标签 lab1-ai-draft",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "保留标签 lab1-final",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "29条有效需求完整覆盖",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "18个基础页面",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "REQ-001追踪目标存在",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "REQ-002追踪目标存在",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "REQ-003追踪目标存在",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "REQ-004追踪目标存在",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "REQ-005追踪目标存在",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "REQ-006追踪目标存在",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "REQ-007追踪目标存在",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "REQ-008追踪目标存在",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "REQ-009追踪目标存在",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "REQ-010追踪目标存在",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "REQ-011追踪目标存在",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "REQ-012追踪目标存在",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "REQ-013追踪目标存在",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "REQ-014追踪目标存在",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "REQ-015追踪目标存在",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "REQ-016追踪目标存在",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "REQ-017追踪目标存在",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "REQ-018追踪目标存在",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "REQ-019追踪目标存在",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "REQ-020追踪目标存在",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "REQ-021追踪目标存在",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "REQ-022追踪目标存在",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "REQ-023追踪目标存在",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "REQ-024追踪目标存在",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "REQ-025追踪目标存在",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "REQ-026追踪目标存在",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "REQ-028追踪目标存在",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "REQ-029追踪目标存在",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "REQ-030追踪目标存在",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "7张UML源图",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "01-classPNG及SVG存在",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "01-class无错误图",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "02-componentsPNG及SVG存在",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "02-components无错误图",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "03-event-statePNG及SVG存在",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "03-event-state无错误图",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "04-registration-statePNG及SVG存在",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "04-registration-state无错误图",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "05-register-sequencePNG及SVG存在",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "05-register-sequence无错误图",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "06-cancel-promote-sequencePNG及SVG存在",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "06-cancel-promote-sequence无错误图",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "07-checkin-sequencePNG及SVG存在",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "07-checkin-sequence无错误图",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "至少四种图",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "UI交互检查全部通过",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "导出数量匹配清单",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "各场景图片可读取",
+      "passed": true,
+      "detail": ""
+    }
+  ],
+  "passed": 56,
+  "total": 56
+}

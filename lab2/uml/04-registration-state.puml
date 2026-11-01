@@ -1,0 +1,42 @@
+@startuml
+title 状态图｜报名记录、名额与截止规则
+skinparam defaultFontName Microsoft YaHei
+skinparam defaultFontSize 15
+skinparam backgroundColor #FCFDFB
+skinparam stateBackgroundColor #EDF6F2
+skinparam stateBorderColor #32685A
+skinparam ArrowColor #537469
+skinparam shadowing false
+state "已报名" as Registered
+state "候补中" as Waiting
+state "已取消" as Cancelled
+state "已签到" as Checked
+state "缺席" as Absent
+state "活动取消" as EventCancelled
+state "候补失效" as Expired
+[*] --> Registered : 开放期、有名额、唯一性通过 / 占用1名额
+[*] --> Waiting : 开放期、满额、选择候补 / 不占名额
+Waiting --> Registered : 截止前释放名额、最早有效候补 / 占用1名额
+Waiting --> Expired : 截止后仍未递补 / 不占名额
+Registered --> Cancelled : 本人取消且满足取消规则 / 释放1名额
+Registered --> Checked : 授权核验通过、活动未取消 / 占用不变
+Registered --> Absent : 场次结束且未签到
+Registered --> EventCancelled : 活动取消
+Checked --> Checked : 再次核验 / 提示已签到，不重复计数
+Checked --> Checked : 活动取消 / 保留签到历史与日志
+note right of Cancelled
+截止前取消：按先后顺序递补。
+截止后取消：不再递补。
+取消时间限制、取消后重报待确认。
+end note
+note bottom of Waiting
+活动取消时停止候补业务，但候补最终状态待确认。
+禁止候补中→已签到、已取消→已签到、已签到→已取消。
+恰等于截止时刻、候补自取消、缺席补签待确认。
+end note
+legend bottom
+REQ-008～018/021：已报名和已签到占名额，候补不占名额。
+结束后签到率=已签到/(已签到+缺席)，零分母显示暂无数据。
+缺席后历史容量展示口径不在本图扩展。
+endlegend
+@enduml

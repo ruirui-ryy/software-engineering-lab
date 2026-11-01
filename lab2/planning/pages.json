@@ -1,0 +1,309 @@
+[
+  {
+    "id": "U01",
+    "title": "登录",
+    "role": "共用",
+    "module": "M01",
+    "reqs": [
+      "REQ-001"
+    ],
+    "states": [
+      "default",
+      "error"
+    ]
+  },
+  {
+    "id": "U02",
+    "title": "账号设置",
+    "role": "共用",
+    "module": "M01",
+    "reqs": [
+      "REQ-001",
+      "REQ-020"
+    ],
+    "states": [
+      "default",
+      "duplicate"
+    ]
+  },
+  {
+    "id": "U03",
+    "title": "发现活动",
+    "role": "参与者",
+    "module": "M03",
+    "reqs": [
+      "REQ-007",
+      "REQ-029"
+    ],
+    "states": [
+      "default",
+      "empty",
+      "error",
+      "loading"
+    ]
+  },
+  {
+    "id": "U04",
+    "title": "活动详情",
+    "role": "参与者",
+    "module": "M03",
+    "reqs": [
+      "REQ-007",
+      "REQ-008",
+      "REQ-014"
+    ],
+    "states": [
+      "default",
+      "full",
+      "closed",
+      "cancelled",
+      "not-open"
+    ]
+  },
+  {
+    "id": "U05",
+    "title": "报名确认",
+    "role": "参与者",
+    "module": "M04",
+    "reqs": [
+      "REQ-008",
+      "REQ-010",
+      "REQ-012",
+      "REQ-013",
+      "REQ-014",
+      "REQ-028"
+    ],
+    "states": [
+      "default",
+      "full",
+      "duplicate",
+      "closed",
+      "cancelled",
+      "unknown",
+      "success",
+      "waiting"
+    ]
+  },
+  {
+    "id": "U06",
+    "title": "我的报名",
+    "role": "参与者",
+    "module": "M04",
+    "reqs": [
+      "REQ-009",
+      "REQ-010",
+      "REQ-011",
+      "REQ-015"
+    ],
+    "states": [
+      "default",
+      "expired",
+      "empty"
+    ]
+  },
+  {
+    "id": "U07",
+    "title": "报名凭证",
+    "role": "参与者",
+    "module": "M04",
+    "reqs": [
+      "REQ-008",
+      "REQ-009",
+      "REQ-011",
+      "REQ-018"
+    ],
+    "states": [
+      "default",
+      "checked",
+      "cancelled",
+      "event-cancelled",
+      "waiting",
+      "expired",
+      "absent"
+    ]
+  },
+  {
+    "id": "U08",
+    "title": "我的活动",
+    "role": "组织者",
+    "module": "M02",
+    "reqs": [
+      "REQ-002",
+      "REQ-003",
+      "REQ-004",
+      "REQ-005"
+    ],
+    "states": [
+      "default",
+      "empty"
+    ]
+  },
+  {
+    "id": "U09",
+    "title": "编辑活动",
+    "role": "组织者",
+    "module": "M02",
+    "reqs": [
+      "REQ-002",
+      "REQ-004",
+      "REQ-019",
+      "REQ-021"
+    ],
+    "states": [
+      "default",
+      "new",
+      "capacity",
+      "review"
+    ]
+  },
+  {
+    "id": "U10",
+    "title": "审核进度",
+    "role": "组织者",
+    "module": "M02",
+    "reqs": [
+      "REQ-003",
+      "REQ-004",
+      "REQ-005"
+    ],
+    "states": [
+      "default",
+      "rejected",
+      "published"
+    ]
+  },
+  {
+    "id": "U11",
+    "title": "报名名单",
+    "role": "组织者",
+    "module": "M06",
+    "reqs": [
+      "REQ-001",
+      "REQ-023",
+      "REQ-025",
+      "REQ-030"
+    ],
+    "states": [
+      "default",
+      "empty",
+      "export-error",
+      "forbidden"
+    ]
+  },
+  {
+    "id": "U12",
+    "title": "活动统计",
+    "role": "组织者",
+    "module": "M06",
+    "reqs": [
+      "REQ-017",
+      "REQ-021",
+      "REQ-022"
+    ],
+    "states": [
+      "default",
+      "ended",
+      "zero"
+    ]
+  },
+  {
+    "id": "U13",
+    "title": "授权场次",
+    "role": "检票人员",
+    "module": "M05",
+    "reqs": [
+      "REQ-001",
+      "REQ-016",
+      "REQ-030"
+    ],
+    "states": [
+      "default",
+      "empty"
+    ]
+  },
+  {
+    "id": "U14",
+    "title": "凭证核验",
+    "role": "检票人员",
+    "module": "M05",
+    "reqs": [
+      "REQ-006",
+      "REQ-016",
+      "REQ-017",
+      "REQ-018",
+      "REQ-025",
+      "REQ-030"
+    ],
+    "states": [
+      "default",
+      "success",
+      "checked",
+      "invalid",
+      "forbidden",
+      "cancelled",
+      "waiting"
+    ]
+  },
+  {
+    "id": "U15",
+    "title": "活动审核",
+    "role": "平台管理员",
+    "module": "M02",
+    "reqs": [
+      "REQ-003",
+      "REQ-005",
+      "REQ-006",
+      "REQ-018"
+    ],
+    "states": [
+      "default",
+      "conflict",
+      "cancelled"
+    ]
+  },
+  {
+    "id": "U16",
+    "title": "平台汇总",
+    "role": "平台管理员",
+    "module": "M06",
+    "reqs": [
+      "REQ-001",
+      "REQ-024"
+    ],
+    "states": [
+      "default",
+      "empty"
+    ]
+  },
+  {
+    "id": "U17",
+    "title": "操作日志",
+    "role": "平台管理员",
+    "module": "M08",
+    "reqs": [
+      "REQ-025",
+      "REQ-030"
+    ],
+    "states": [
+      "default",
+      "empty",
+      "forbidden"
+    ]
+  },
+  {
+    "id": "U18",
+    "title": "通知处理",
+    "role": "待确认",
+    "module": "M07",
+    "reqs": [
+      "REQ-025",
+      "REQ-026"
+    ],
+    "states": [
+      "default",
+      "retrying",
+      "failed",
+      "success"
+    ]
+  }
+]

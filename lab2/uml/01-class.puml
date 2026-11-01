@@ -1,0 +1,119 @@
+@startuml
+!pragma layout smetana
+title 类图｜核心领域与应用职责
+skinparam defaultFontName Microsoft YaHei
+skinparam defaultFontSize 14
+skinparam backgroundColor #FCFDFB
+skinparam classBackgroundColor #EDF6F2
+skinparam classBorderColor #32685A
+skinparam ArrowColor #537469
+skinparam shadowing false
+hide circle
+class "用户 User" as User {
+  id: ID
+  account: String {unique}
+}
+class "角色 Role" as Role {
+  code: RoleCode
+}
+class "场次授权 SessionGrant" as Grant {
+  userId: ID
+  sessionId: ID
+}
+class "活动 Event" as Event {
+  organizerId: ID
+  status: EventStatus
+  version: Long
+  submitForReview()
+  cancel()
+}
+class "场次 Session" as Session {
+  startsAt: DateTime
+  endsAt: DateTime
+  registrationOpensAt: DateTime
+  registrationClosesAt: DateTime
+}
+class "票种 TicketType" as Ticket {
+  name: String
+  capacity: Integer
+}
+class "报名 Registration" as Reg {
+  id: ID
+  status: RegistrationStatus
+  queuedAt: DateTime [0..1]
+  cancel()
+  promote()
+  checkIn()
+}
+class "凭证 Credential" as Credential {
+  code: String
+}
+class "审核 Review" as Review {
+  decision: ReviewDecision
+  reason: String
+  decidedAt: DateTime
+}
+class "成功检票 CheckIn" as CheckIn {
+  registrationId: ID {unique}
+  operatorId: ID
+  checkedAt: DateTime
+}
+class "通知 Notification" as Notice {
+  status: DeliveryStatus
+  businessRef: ID
+  retry()
+}
+class "审计日志 AuditLog" as Log {
+  actorId: ID [0..1]
+  occurredAt: DateTime
+  objectRef: String
+  operation: String
+  result: String
+}
+class "幂等结果 IdempotencyResult" as Idem {
+  userId: ID
+  operation: String
+  requestKey: String
+  result: String
+}
+class "报名服务 RegistrationService" as Service <<application>> {
+  register(actor, command)
+  cancel(actor, command)
+  promoteBeforeDeadline(scope)
+}
+User "0..*" -- "1..*" Role : 角色模型为设计建议
+User "1" -- "0..*" Event : 组织者
+Event "1" *-- "0..*" Session
+Session "1" *-- "0..*" Ticket
+User "1" -- "0..*" Reg
+Session "1" -- "0..*" Reg
+Ticket "1" -- "0..*" Reg
+Reg "1" -- "0..1" Credential
+Reg "1" -- "0..1" CheckIn
+User "1" -- "0..*" Grant
+Session "1" -- "0..*" Grant
+Event "1" -- "0..*" Review
+User "1" -- "0..*" Review : 审核人
+User "1" -- "0..*" Idem
+Notice ..> Reg : 业务关联示例
+Log ..> User : 操作人
+Service ..> Reg
+Service ..> Event
+Service ..> Idem
+Service ..> Notice
+note bottom of Reg
+REQ-013：同用户、同场次有效报名唯一。
+REQ-019：票种必须属于该报名的场次。
+REQ-021：已报名＋已签到占额，候补不占额。
+有效状态全集、容量层级和候补队列粒度待确认。
+end note
+note bottom of Idem
+设计建议：unique(userId, operation, requestKey)。
+结果与业务写入同事务保存；不缓存未提交成功。
+end note
+legend bottom
+数据保存建议：关系型持久化、外键、条件唯一约束及事务。
+场次/票种双层容量规则待确认，图中不预设组合上限。
+REQ-001/008/013/016/019/020/021/025/026
+endlegend
+@enduml

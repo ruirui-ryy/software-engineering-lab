@@ -1,0 +1,43 @@
+@startuml
+title 状态图｜活动生命周期（只固化已确认路径）
+skinparam defaultFontName Microsoft YaHei
+skinparam defaultFontSize 15
+skinparam backgroundColor #FCFDFB
+skinparam stateBackgroundColor #EDF6F2
+skinparam stateBorderColor #32685A
+skinparam ArrowColor #537469
+skinparam shadowing false
+state "草稿" as Draft
+state "待审核" as Pending
+state "审核驳回" as Rejected
+state "已发布" as Published
+state "已取消" as Cancelled
+state "已结束" as Ended
+[*] --> Draft : 创建并保存
+Draft --> Pending : 提交审核
+Pending --> Published : 管理员通过
+Pending --> Rejected : 管理员驳回
+Rejected --> Pending : 修改后重新提交
+note right of Published
+重要信息变更必须复审。
+字段集合、复审状态表示及期间报名策略待确认。
+容量不得低于占用数。
+不擅自添加确定的复审状态边。
+end note
+note right of Cancelled
+有取消权限者按允许条件取消活动。
+各起始状态允许取消的完整集合待确认，故不画通用入口边。
+取消后禁止新报名、候补、签到。
+未签到已报名→活动取消；已签到历史保留。
+end note
+note right of Ended
+已结束状态已确认；进入路径和完整条件待细化。
+场次结束时未签到的已报名记缺席。
+活动与场次结束不可混为同一事件。
+end note
+legend bottom
+REQ-003/004/005/006/018
+未经审核不能直接发布；已取消/已结束能否恢复待确认。
+注释中的规则缺口不是允许的状态转换。
+endlegend
+@enduml

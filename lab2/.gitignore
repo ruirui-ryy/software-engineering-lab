@@ -1,0 +1,7 @@
+# Local render dependency and temporary browser downloads; keep editable artifacts.
+/tools/plantuml.jar
+/checks/downloads/
+/tools/__pycache__/
+/report/qa/
+/report/assets/
+/report/history/

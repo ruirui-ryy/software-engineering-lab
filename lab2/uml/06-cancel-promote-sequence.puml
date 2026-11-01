@@ -1,0 +1,39 @@
+@startuml
+title 时序图｜取消报名、截止前递补与截止失效
+skinparam defaultFontName Microsoft YaHei
+skinparam defaultFontSize 14
+skinparam backgroundColor #FCFDFB
+skinparam sequenceParticipantBackgroundColor #EDF6F2
+skinparam shadowing false
+actor 参与者 as U
+control 报名服务 as S
+database 业务存储 as DB
+control 截止处理 as Job
+U -> S : 取消本人已报名记录
+S -> DB : BEGIN；锁活动→场次/名额→报名
+S -> DB : 校验本人、活动状态及取消规则
+alt 非本人/已签到/状态不允许
+  S -> DB : ROLLBACK；独立保存失败审计
+  S --> U : 拒绝并说明原因
+else 满足取消条件
+  S -> DB : 已报名→已取消；释放原占用
+  alt 服务器判定尚在截止前且活动允许
+    S -> DB : 锁定最早有效候补；再次校验资格
+    opt 存在合格候补
+      S -> DB : 候补中→已报名；占用释放名额；创建凭证
+    end
+  else 截止后
+    note right of S : 不触发递补，即使存在空名额
+  end
+  S -> DB : 同事务保存审计/待发通知；COMMIT
+  S --> U : 取消成功
+end
+Job -> DB : 截止后 BEGIN；同样活动协调锁
+Job -> DB : 剩余候补中→候补失效；不占容量；COMMIT
+note over S, DB
+REQ-009/010/015/021/028：取消与递补同事务，失败整体回滚。
+候补队列粒度及跨票种分配待确认，不擅自跳过前序有效候补。
+截止任务延迟时，业务入口仍按服务器时间禁止新报名/候补/递补。
+等于截止时刻、取消时间窗口待确认。
+end note
+@enduml

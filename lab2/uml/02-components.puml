@@ -1,0 +1,53 @@
+@startuml
+title 组件图｜分层单体与模块协作（设计建议）
+skinparam defaultFontName Microsoft YaHei
+skinparam defaultFontSize 15
+skinparam backgroundColor #FCFDFB
+skinparam componentStyle rectangle
+skinparam componentBackgroundColor #EDF6F2
+skinparam componentBorderColor #32685A
+skinparam ArrowColor #537469
+skinparam shadowing false
+top to bottom direction
+[四角色界面] as UI
+[M01 身份与权限\n角色＋数据范围] as Auth
+package "应用与领域层" as App {
+  [M03 活动查询] as Query
+  [M02 活动维护与审核] as Event
+  [M04 报名候补凭证] as Reg
+  [M05 检票与结束处理] as Check
+  [M06 名单与统计] as Stats
+  [M07 通知失败处理] as Notice
+  [M08 操作日志] as Log
+  Query --> Event : 读取活动信息
+  Reg <--> Event : 活动状态约束 / 取消后的报名处理
+  Check --> Reg : 核验并改变报名状态
+  Stats --> Reg : 读取统一报名状态
+  Reg --> Notice : 提交后处理待发通知
+  Notice -[hidden]right-> Log
+  note bottom of Log
+  各业务模块记录关键操作及结果。
+  日志查询仅限管理员。
+  失败审计独立于已回滚的业务事务保存。
+  end note
+}
+[数据访问 / 事务协调] as Repo
+database "关系型业务存储\n建议方案" as DB
+[通知渠道适配接口\n渠道待确认] as Channel
+UI --> Auth : 受保护请求
+Auth --> App : 授权后分派至对应模块
+Auth ..> Repo : 读取角色、归属与授权
+App --> Repo : 各模块通过数据访问保存/查询
+Repo --> DB
+Notice --> Channel : 发送与失败补发
+note bottom of Repo
+REQ-028：关键写入原子提交；失败不留部分更新。
+建议统一锁序：活动 → 场次/名额 → 报名。
+活动取消与报名、递补、签到使用同一协调策略。
+end note
+legend bottom
+权限检查贯穿每次应用操作，不能仅隐藏UI按钮（REQ-001/030）。
+通知失败不回滚报名；导出失败不交付标称成功的残缺文件。
+REQ-019/023/025/026/028/029；本图不表示独立部署服务。
+endlegend
+@enduml

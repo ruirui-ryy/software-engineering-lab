@@ -1,0 +1,38 @@
+@startuml
+title 时序图｜检票、重复核验与活动取消竞争
+skinparam defaultFontName Microsoft YaHei
+skinparam defaultFontSize 14
+skinparam backgroundColor #FCFDFB
+skinparam sequenceParticipantBackgroundColor #EDF6F2
+skinparam shadowing false
+actor 检票人员 as C
+boundary 检票界面 as UI
+control 检票服务 as S
+database 业务存储 as DB
+actor 有取消权限的操作人 as A
+control 活动服务 as ES
+C -> UI : 提交凭证
+UI -> S : verifyAndCheckIn(actor, session, credential)
+S -> DB : BEGIN；锁活动→场次→报名
+S -> DB : 校验授权场次、活动状态、凭证、报名状态
+alt 活动已取消/越权/凭证无效/非法状态
+  S -> DB : ROLLBACK；独立保存失败审计
+  S --> UI : 拒绝，不计数
+else 已签到
+  S -> DB : 不新增成功检票；结束事务；记录核验结果
+  S --> UI : 已签到，不重复计数
+else 已报名且所有校验通过
+  S -> DB : 已报名→已签到；插入唯一成功检票记录
+  S -> DB : 占用数不变；保存审计；COMMIT
+  S --> UI : 签到成功
+end
+A -> ES : 取消活动（权限及允许条件满足）
+ES -> DB : BEGIN；申请同一活动锁，等待先前事务结束
+ES -> DB : 标记已取消；未签到已报名→活动取消
+ES -> DB : 保留已签到历史与日志；COMMIT
+note over ES, DB
+若取消先提交，后续检票在持锁后读到已取消并拒绝。
+若签到先提交，取消保留该历史事实。
+REQ-006/016/017/018/028/030；检票时间窗口待确认。
+end note
+@enduml
